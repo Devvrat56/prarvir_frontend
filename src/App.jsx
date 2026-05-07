@@ -6,10 +6,33 @@ import axios from 'axios';
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 const App = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const saved = localStorage.getItem('prarvi_messages');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [userState, setUserState] = useState(() => {
+    const saved = localStorage.getItem('prarvi_user_state');
+    return saved ? JSON.parse(saved) : {
+      name: null,
+      email: null,
+      phone: null,
+      customer_type: "Visitor",
+      interest: null,
+      lead_captured: false
+    };
+  });
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Persistence Effects
+  useEffect(() => {
+    localStorage.setItem('prarvi_messages', JSON.stringify(messages));
+  }, [messages]);
+
+  useEffect(() => {
+    localStorage.setItem('prarvi_user_state', JSON.stringify(userState));
+  }, [userState]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -30,7 +53,8 @@ const App = () => {
 
     try {
       const response = await axios.post(`${API_URL}/chat`, {
-        message: input
+        message: input,
+        user_state: userState
       });
 
       const botMessage = {
@@ -39,6 +63,9 @@ const App = () => {
         context: response.data.context
       };
       setMessages(prev => [...prev, botMessage]);
+      if (response.data.user_state) {
+        setUserState(response.data.user_state);
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       setMessages(prev => [...prev, {
@@ -114,7 +141,19 @@ const App = () => {
 
         <div className="p-8 border-t border-white/5">
           <button 
-            onClick={() => setMessages([])}
+            onClick={() => {
+              setMessages([]);
+              setUserState({
+                name: null,
+                email: null,
+                phone: null,
+                customer_type: "Visitor",
+                interest: null,
+                lead_captured: false
+              });
+              localStorage.removeItem('prarvi_messages');
+              localStorage.removeItem('prarvi_user_state');
+            }}
             className="w-full flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-gray-500 hover:text-red-400 transition-colors py-2"
           >
             <Trash2 size={14} /> Clear Chat History
