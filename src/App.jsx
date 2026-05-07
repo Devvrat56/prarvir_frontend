@@ -79,13 +79,36 @@ const App = () => {
             </ul>
           </div>
 
-          <div className="glass-panel p-4 rounded-2xl border-white/5">
-            <h3 className="text-sm font-bold text-[#d4af37] mb-2 flex items-center gap-2">
-              <Phone size={14} /> Need Help?
+          <div className="glass-panel p-6 rounded-2xl border-white/5 space-y-4">
+            <h3 className="text-sm font-bold text-[#d4af37] flex items-center gap-2">
+              <Phone size={14} /> Contact Us
             </h3>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              Our specialists are available 9 AM - 6 PM at <span className="text-white">+1-800-PRARVI</span>
-            </p>
+            
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <Phone size={14} className="text-gray-500 mt-1" />
+                <div className="text-xs">
+                  <p className="text-gray-500 uppercase tracking-tighter text-[10px]">Phone/Text</p>
+                  <a href="tel:+19083670892" className="text-white hover:text-[#d4af37] transition-colors font-medium">+1 908-367-0892</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Mail size={14} className="text-gray-500 mt-1" />
+                <div className="text-xs">
+                  <p className="text-gray-500 uppercase tracking-tighter text-[10px]">Email</p>
+                  <a href="mailto:sales@prarvi.com" className="text-white hover:text-[#d4af37] transition-colors font-medium">sales@prarvi.com</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Info size={14} className="text-gray-500 mt-1" />
+                <div className="text-xs">
+                  <p className="text-gray-500 uppercase tracking-tighter text-[10px]">Address</p>
+                  <p className="text-gray-300 leading-relaxed">75 Washington Valley Road,<br/>Bedminster, NJ</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
