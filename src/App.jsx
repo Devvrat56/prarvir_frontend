@@ -9,7 +9,6 @@ const App = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState('');
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -31,8 +30,7 @@ const App = () => {
 
     try {
       const response = await axios.post(`${API_URL}/chat`, {
-        message: input,
-        api_key: apiKey || undefined
+        message: input
       });
 
       const botMessage = {
@@ -57,22 +55,11 @@ const App = () => {
       {/* Sidebar */}
       <aside className="w-80 bg-[#0a0a1a] border-r border-white/5 flex flex-col hidden md:flex">
         <div className="p-8 border-b border-white/5">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#8b1c73] to-[#ab3a91] flex items-center justify-center shadow-lg">
               <Sparkles className="text-white w-5 h-5" />
             </div>
             <h1 className="text-xl font-bold brand-gradient">Prarvi</h1>
-          </div>
-          
-          <div className="space-y-4">
-            <label className="text-xs uppercase tracking-widest text-gray-500 font-bold">Settings</label>
-            <input 
-              type="password" 
-              placeholder="Groq API Key (Optional)"
-              className="w-full bg-[#161625] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-luxury-accent transition-all"
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-            />
           </div>
         </div>
 
