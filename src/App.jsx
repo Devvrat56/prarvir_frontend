@@ -103,8 +103,8 @@ const App = () => {
       <main className="flex-1 flex flex-col relative bg-transparent">
         {/* Header (Mobile only) */}
         <header className="md:hidden p-4 border-b border-white/5 flex items-center justify-between">
-          <h1 className="text-lg font-serif font-bold text-gradient">Hair Cider</h1>
-          <Sparkles className="text-luxury-accent w-5 h-5" />
+          <h1 className="text-lg font-bold brand-gradient">Prarvi</h1>
+          <Sparkles className="text-[#8b1c73] w-5 h-5" />
         </header>
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 custom-scrollbar">
@@ -138,8 +138,8 @@ const App = () => {
                     onClick={() => setInput(item.q)}
                     className="glass-panel group p-5 rounded-2xl text-left hover:border-luxury-accent/40 transition-all flex items-center gap-4 border-white/5"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-luxury-accent/10 transition-colors">
-                      <span className="text-luxury-accent">{item.icon}</span>
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#8b1c73]/10 transition-colors">
+                      <span className="text-[#8b1c73]">{item.icon}</span>
                     </div>
                     <div>
                       <div className="text-sm font-bold text-white mb-1">{item.q}</div>
@@ -161,7 +161,7 @@ const App = () => {
               >
                 {msg.role === 'assistant' && (
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Bot size={18} className="text-luxury-accent" />
+                    <Bot size={18} className="text-[#8b1c73]" />
                   </div>
                 )}
                 
@@ -180,13 +180,13 @@ const App = () => {
                   {msg.context && msg.context.length > 0 && (
                     <div className="px-1">
                       <details className="group">
-                        <summary className="text-[10px] text-gray-600 cursor-pointer hover:text-luxury-accent transition-colors flex items-center gap-1 list-none uppercase tracking-widest font-bold">
+                        <summary className="text-[10px] text-gray-600 cursor-pointer hover:text-[#8b1c73] transition-colors flex items-center gap-1 list-none uppercase tracking-widest font-bold">
                           <Info size={10} /> Reference Data
                         </summary>
                         <div className="mt-3 space-y-2">
                           {msg.context.map((doc, i) => (
                             <div key={i} className="bg-black/40 rounded-lg p-3 border border-white/5 text-[11px]">
-                              <div className="text-luxury-gold mb-1 font-bold">{doc.title || doc.name}</div>
+                              <div className="text-[#d4af37] mb-1 font-bold">{doc.title || doc.name}</div>
                               <div className="text-gray-500 line-clamp-2">{doc.description || `Category: ${doc.product_type || doc.category}`}</div>
                             </div>
                           ))}
@@ -197,8 +197,8 @@ const App = () => {
                 </div>
 
                 {msg.role === 'user' && (
-                  <div className="w-10 h-10 rounded-full bg-luxury-accent/20 border border-luxury-accent/30 flex items-center justify-center flex-shrink-0 mt-1">
-                    <User size={18} className="text-luxury-accent" />
+                  <div className="w-10 h-10 rounded-full bg-[#8b1c73]/20 border border-[#8b1c73]/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <User size={18} className="text-[#8b1c73]" />
                   </div>
                 )}
               </motion.div>
@@ -213,7 +213,7 @@ const App = () => {
             <input 
               type="text" 
               placeholder="How can I help you today?"
-              className="w-full bg-[#161625] border border-white/10 rounded-2xl px-6 py-4 pr-16 focus:outline-none focus:border-luxury-accent/50 focus:ring-4 focus:ring-luxury-accent/5 transition-all text-sm md:text-base group-hover:border-white/20"
+              className="w-full bg-[#161625] border border-white/10 rounded-2xl px-6 py-4 pr-16 focus:outline-none focus:border-[#8b1c73]/50 focus:ring-4 focus:ring-[#8b1c73]/5 focus:ring-[#8b1c73]/5 transition-all text-sm md:text-base group-hover:border-white/20"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               disabled={isLoading}
@@ -223,7 +223,7 @@ const App = () => {
               disabled={isLoading || !input.trim()}
               className={`absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
                 input.trim() && !isLoading 
-                ? 'btn-luxury shadow-lg shadow-luxury-accent/20' 
+                ? 'btn-luxury shadow-lg shadow-[#8b1c73]/20' 
                 : 'bg-white/5 text-gray-600'
               }`}
             >
@@ -235,7 +235,7 @@ const App = () => {
             </button>
           </form>
           <p className="text-center text-[10px] text-gray-600 mt-4 uppercase tracking-[0.2em]">
-            Powered by Groq Llama-3.3 70B & Hair Cider RAG Engine
+            Powered by Groq Llama-3.3 70B & Prarvi RAG Engine
           </p>
         </div>
       </main>
