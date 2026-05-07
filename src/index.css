@@ -6,53 +6,78 @@
 
 :root {
   font-family: 'Inter', sans-serif;
-  background-color: #0f0c29;
-  color: #e0e0e0;
+  /* Prarvi Color Palette */
+  --prarvi-primary: #8b1c73;
+  --prarvi-primary-light: #ab3a91;
+  --prarvi-gold: #d4af37;
+  --prarvi-bg: #0a0a0a;
+  --prarvi-surface: #1a1a1a;
+  
+  background-color: var(--prarvi-bg);
+  color: #f5f5f5;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1a1a2e 0%, #0f0c29 100%);
+  background: radial-gradient(circle at top right, #2a0a25 0%, #0a0a0a 100%);
 }
 
-    /* User Message Specific (Pink Border) */
-    [data-testid="stChatMessageUser"], .user-bubble {
-        background-color: rgba(213, 126, 235, 0.05) !important;
-        border: 2px solid #d57eeb !important;
-        border-radius: 20px 20px 0px 20px !important;
-    }
-    
-    /* Bot Message Specific (Glassmorphism) */
-    .bot-bubble {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px 20px 20px 0px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    }
+.user-bubble {
+    background-color: rgba(139, 28, 115, 0.1) !important;
+    border: 1px solid var(--prarvi-primary) !important;
+    border-radius: 18px 18px 0px 18px !important;
+}
+
+.bot-bubble {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px 18px 18px 0px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #fccb90 0%, #d57eeb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--prarvi-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.brand-gradient {
+    background: linear-gradient(90deg, var(--prarvi-primary) 0%, var(--prarvi-primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .btn-luxury {
-  background: linear-gradient(45deg, #d57eeb 0%, #fccb90 100%);
-  color: #000000;
-  font-weight: 700;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, var(--prarvi-primary) 0%, var(--prarvi-primary-light) 100%);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-luxury:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(213, 126, 235, 0.4);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(139, 28, 115, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 28, 115, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--prarvi-primary);
 }

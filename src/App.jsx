@@ -58,10 +58,10 @@ const App = () => {
       <aside className="w-80 bg-[#0a0a1a] border-r border-white/5 flex flex-col hidden md:flex">
         <div className="p-8 border-b border-white/5">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#d57eeb] to-[#fccb90] flex items-center justify-center shadow-lg">
-              <Sparkles className="text-black w-5 h-5" />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#8b1c73] to-[#ab3a91] flex items-center justify-center shadow-lg">
+              <Sparkles className="text-white w-5 h-5" />
             </div>
-            <h1 className="text-xl font-serif font-bold text-gradient">Hair Cider</h1>
+            <h1 className="text-xl font-bold brand-gradient">Prarvi</h1>
           </div>
           
           <div className="space-y-4">
@@ -92,12 +92,12 @@ const App = () => {
             </ul>
           </div>
 
-          <div className="glass-panel p-4 rounded-2xl border-luxury-accent/20">
-            <h3 className="text-sm font-bold text-luxury-gold mb-2 flex items-center gap-2">
+          <div className="glass-panel p-4 rounded-2xl border-white/5">
+            <h3 className="text-sm font-bold text-[#d4af37] mb-2 flex items-center gap-2">
               <Phone size={14} /> Need Help?
             </h3>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Our specialists are available 9 AM - 6 PM at <span className="text-white">+1-800-HAIRCIDER</span>
+              Our specialists are available 9 AM - 6 PM at <span className="text-white">+1-800-PRARVI</span>
             </p>
           </div>
         </div>
@@ -126,16 +126,16 @@ const App = () => {
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-[#d57eeb]/20 to-[#fccb90]/20 flex items-center justify-center mb-4 border border-white/10 relative overflow-hidden"
+                className="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-[#8b1c73]/20 to-[#d4af37]/20 flex items-center justify-center mb-4 border border-white/10 relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/5 blur-xl" />
-                <Bot size={60} className="text-luxury-accent relative z-10" />
+                <Bot size={60} className="text-[#8b1c73] relative z-10" />
               </motion.div>
               
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-gradient tracking-tight">How can I help you today?</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-gradient tracking-tight">How can I help you today?</h2>
                 <p className="text-gray-400 text-lg leading-relaxed max-w-lg mx-auto">
-                  Experience Hair Cider. Ask me about our premium collections, styling services, or order support.
+                  Experience Prarvi. Ask me about our premium collections, styling services, or order support.
                 </p>
               </div>
 
